@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 
 export async function POST(req) {
     //grabbibg the data we are sending to our api
-    const { email, password } = await req.json();
+    let { email, password } = await req.json();
     mongoose.connect(process.env.MONGO_URL);
     const user = await User.findOne({ email });
 
